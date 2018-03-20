@@ -124,13 +124,14 @@
             $("#losses").text("Losses " + userLosses);
         }
 
-        reset();
+        
 
         $(document).ready(function () {
 
             $("#random-button").on("click", function () {
 
-
+                reset();
+                
                 random = Math.floor(Math.random() * Math.pow(10, diffLevel)) + 1;
                 //random = Math.floor(10) + 1;
                 $("#random-number").text(random);
