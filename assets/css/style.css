@@ -3,7 +3,7 @@
 }
 
 #box-score {
-    height: 200px;
+    height: 250px;
 }
 
 #box-right{
@@ -54,8 +54,14 @@
  }
 
 
-.gem {
-    padding: 0px 25px 0px 25px;
+#gem {
+    padding: 0px 20px 0px 20px;
+}
+
+.musicButton {
+    
+    margin: auto;
+    width: 50%;
 }
 
 p{
@@ -75,6 +81,10 @@ p{
     float: bottom;
 }
 
+.scoreReport {
+    margin-left: 50px;
+    padding: 5px;
+}
 .slidecontainer {
     width: 100%;
 }
