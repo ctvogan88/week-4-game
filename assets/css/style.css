@@ -1,10 +1,87 @@
+#box-left {
+    height: 200px;
+}
+
+#box-score {
+    height: 200px;
+}
+
+#box-right{
+    height: 100px;
+}
+
+.card-right{
+    float: right;
+    margin: auto;
+}
+
+#card-body{
+    float: right;
+}
+
+#crystals {
+    margin: auto;
+    width: 100%;
+    border: 2px solid rgb(0, 0, 0);
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}
+
+#diamond{
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border: 1px, black;
+}
+
+
+#diffLevel {
+    padding-left: 50px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: red;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+ }
+
+
+.gem {
+    padding: 0px 25px 0px 25px;
+}
+
+p{
+    font-size: 20px;
+    margin: auto;
+    padding: 50px;
+    color: rgb(55, 0, 255);
+}
+#random-button{
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+    margin-left: 50%;
+}
+
+#row2 {
+    float: bottom;
+}
+
 .slidecontainer {
-    width: 50%;
+    width: 100%;
 }
 
 .slider {
     -webkit-appearance: none;
-    width: 50%;
+    width: 100%;
     height: 25px;
     background: #d3d3d3;
     outline: none;
@@ -32,57 +109,7 @@
     background: #4CAF50;
     cursor: pointer;
 }
-
-.card-right{
-    float: right;
-    margin: auto;
-}
-
-#card-body{
-    float: right;
-}
-
-#diamond{
-    margin: auto;
-    width: 50px;
-    height: 50px;
-    border: 1px, black;
-}
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: grey;
-    color: white;
-    text-align: center;
- }
-
- #crystals {
-    margin: auto;
-    width: 100%;
-    border: 2px solid rgb(0, 0, 0);
-    padding-left: 50px;
-    padding-right: 50px;
-    text-align: center;
-}
-
-.gem {
-    padding: 0px 25px 0px 25px;
-}
-
-#box-left {
-    height: 200px;
-}
-
-#box-right{
-    height: 100px;
-}
-
-#diffLevel {
-    padding-left: 50px;
-    margin-right: 10px;
-    font-weight: bold;
-    color: red;
+#title-text{
+    font-family: 'Faster One', cursive;
+    font-size: 30px;
 }
