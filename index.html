@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Added link to the jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="jumbotron container">
+        <h1 class="text-center">Week 4 Crystal Game</h1>
+        <h3 class="text-center">Click on the crystals to match the number value shown!</h3>
+        <div class="slidecontainer">
+            <p>Choose Difficulty Level: <span id="diffLevel"></span></p>
+            <input type="range" min="1" max="5" value="1" class="slider" id="myRange">
+        </div>
+        <br>
+        <div class="text-center">
+
+            <!-- Random number generator button (#random-button) -->
+            <button id="random-button" class="btn btn-primary btn-lg">
+                <h3>Generate a Random Number!</h3>
+            </button>
+            <br>
+            <br>
+        </div>
+
+        <!-- Single Row -->
+        <div class="row">
+            <!-- Crystals Panel -->
+            <div class="col-lg-8">
+                <div class="card" id="box-left">
+                    <h3 class="card-header">Select Your Crystals Wisely</h3>
+                    <div class="card-body">
+                        <div id="crystals">
+                            <img class="blue-gem" src="assets/images/blue.png" alt="diamond">
+                            <img class="red-gem" src="assets/images/red.png" alt="hexagon">
+                            <img class="green-gem" src="assets/images/green.png" alt="baguette">
+                            <img class="yellow-gem" src="assets/images/yellow.png" alt="emerald">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Numbers Panel -->
+            <div class="col-lg-4 numbers">
+                <div class="card" id="box-right">
+                    <h5 class="card-header">Random Number</h5>
+                    <div class="card-body">
+                        <h1 class="text-center" id="random-number">???</h1>
+                    </div>
+                </div>
+                <div class="card" id="box-right">
+                    <h5 class="card-header">Your Score!</h5>
+                    <div class="card-body">
+                        <h1 class="text-center" id="user-number">###</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("diffLevel");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            diffLevel = slider.value;
+        }
+
+        //asks user if he wants to play the game
+        var userPlay = confirm("Would you like to play the Crystals Game?");
+        var crystals = $("#crystals");
+        var random = "";
+        var userScore = 0;
+        var blueNum = 0;
+        var redNum = 0;
+        var greenNum = 0;
+        var yellowNum = 0;
+        //var crystalColors = [blue, red, green, yellow];
+        //var red, green, yellow = 5;
+
+        //runs game if user confirms above question
+        if (userPlay) {
+
+            //console.log("Blue = " + blueNum)
+
+            $(document).ready(function () {
+
+                $("#random-button").on("click", function () {
+
+                    random = Math.floor(Math.random() * Math.pow(10,diffLevel)) + 1;
+                    //random = Math.floor(10) + 1;
+                    $("#random-number").text(random);
+
+                    blueNum = Math.floor(Math.random() * 1000) + 1;
+                    redNum = Math.floor(Math.random() * 1000) + 1;
+                    greenNum = Math.floor(Math.random() * 1000) + 1;
+                    yellowNum = Math.floor(Math.random() * 1000) + 1;
+
+                    console.log("Blue = " + blueNum);
+                    console.log("Red = " + redNum);
+                    console.log("Green = " + greenNum);
+                    console.log("Yellow = " + yellowNum);
+                    console.log("Diff level = " + diffLevel);
+
+                });
+
+                //https://www.rocksandco.com/media/wysiwyg/classic-shapes-cuts.jpg
+                // adds blue diamond value to user score
+                $(".blue-gem").click(function () {
+                    console.log("Add " + blueNum + " to your number!");
+                    score(blueNum);
+                    console.log("New score: " + userScore);
+                });
+
+                // adds red hexagon value to user score
+                $(".red-gem").click(function () {
+                    console.log("Add " + redNum + " to your number!");
+                    score(redNum);
+                    console.log("New score: " + userScore);
+                });
+
+                // adds green baguette value to user score
+                $(".green-gem").click(function () {
+                    console.log("Add " + greenNum + " to your number!");
+                    score(greenNum);
+                    console.log("New score: " + userScore);
+                });
+
+                // adds yellow emerald value to user score
+                $(".yellow-gem").click(function () {
+                    console.log("Add " + yellowNum + " to your number!");
+                    score(yellowNum);
+                    console.log("New score: " + userScore);
+                });
+
+            });
+
+            function score(value) {
+                userScore = userScore + value;
+                if (userScore > random) {
+                    console.log("Game Over!");
+                }
+                remNum = random - userScore;
+                $("#user-number").text(remNum);
+            }
+
+            // randomly generates a computer number and 4 values for crystals
+            function valueGen() {
+                
+                var compNum = Math.floor(Math.random() * 1000) + 1;
+                var blueNum = Math.floor(Math.random() * 100) + 1;
+                var redNum = Math.floor(Math.random() * 1000) + 1;
+                var greenNum = Math.floor(Math.random() * 1000) + 1;
+                var yellowNum = Math.floor(Math.random() * 1000) + 1;
+
+            };
+        };
+
+    </script>
+
+
+</body>
+
+</html>
